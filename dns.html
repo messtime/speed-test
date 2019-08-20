@@ -1,0 +1,245 @@
+<!-- <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+ "http://www.w3.org/TR/html4/loose.dtd"> -->
+<html lang="en" dir="ltr">
+<!--
+Specifying the doctype DTD URL causes IE to render in standards mode.
+See http://msdn.microsoft.com/en-us/library/ms535242.aspx
+-->
+
+<head>
+  <title>DNS 测速</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="description" content="This site allows you to perform an HTTP ping to measure the network latency from your browser to the various Amazon Web Services&trade; datacenters around the world.">
+  <link rel="stylesheet" href="style-v=2.css" type="text/css">
+  <style type="text/css">
+      #pinger tr td span {
+        min-width: 100px;
+        display: inline-block;
+      }
+  </style>
+<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-2646647685096501",
+    enable_page_level_ads: true
+  });
+</script> -->
+
+<!-- <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-21822306-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script> -->
+
+</head>
+<body>
+
+<div id=page>
+
+<div id=title>
+  <h1>DNS 测速</h1>
+</div>
+
+<div id=content>
+
+<p>各个DSN 提供测试连接速度， 按照2018年dns排名排序 <a href="https://jingyan.baidu.com/article/6dad50753e6031a123e36e1f.html">2018公共DNS服务器地址评估—DNS推荐</a>  ， 不同地区不同网络 最快的 DNS都可能不太一样(部分服务商可能不支持HTTP ping ,会显示连接失败,后续在优化 )</p>
+
+
+<table id="pinger">
+    <tr>
+        <th>DNS 名称</th>
+        <th>ip</th>
+    </tr>
+    <tr>
+        <td><span>DNSPod DNS</span> (首选：119.29.29.29)</td>
+        <td class='latency' id='us-east-1' endpoint='119.29.29.29'>&nbsp;</td>
+    </tr>
+    <tr>
+        <td><span>DNSPod</span> (备选：182.254.116.116)</td>
+        <td class='latency' id='us-east-2' endpoint='182.254.116.116'>&nbsp;</td>
+    </tr>
+    <tr>
+        <td><span>114DNS</span> (首选：114.114.114.114)</td>
+        <td class='latency'  id='us-west-1' endpoint='114.114.114.114'>&nbsp;</td>
+    </tr>
+    <tr>
+        <td><span>114DNS</span> (备选：114.114.114.115)</td>
+        <td class='latency'  id='us-west-2' endpoint='114.114.114.115'>&nbsp;</td>
+    </tr>
+    <tr>
+        <td><span>百度 DNS</span> (首选：180.76.76.76)</td>
+        <td class='latency'  id='ca-central-1' endpoint='180.76.76.76'>&nbsp;</td>
+    </tr>
+    <tr>
+        <td><span>百度 DNS</span> (备选：无)</td>
+    <!--     <td class='latency'  id='ca-central-1' endpoint=''>&nbsp;</td> -->
+    </tr>
+    <tr>
+        <td><span>阿里 DNS</span> (首选：223.5.5.5)</td>
+        <td class='latency'  id='eu-west-1' endpoint='223.5.5.5'>&nbsp;</td>
+    </tr>
+    <tr>
+        <td><span>阿里 DNS</span> (备选：223.6.6.6)</td>
+        <td class='latency'  id='eu-west-2' endpoint='223.6.6.6'>&nbsp;</td>
+    </tr>
+    <tr>
+        <td><span>CNNIC SDNS</span> (首选：1.2.4.8)</td>
+        <td class='latency'  id='eu-central-1' endpoint='1.2.4.8'>&nbsp;</td>
+    </tr>
+    <tr>
+        <td><span>CNNIC SDNS</span> (备选：202.98.0.68)</td>
+        <td class='latency'  id='eu-west-3' endpoint='202.98.0.68'>&nbsp;</td>
+    </tr>
+    <tr>
+        <td><span>DNS派</span> (首选：101.226.4.6)</td>
+        <td class='latency'  id='eu-north-1' endpoint='101.226.4.6'>&nbsp;</td>
+    </tr>
+    <tr>
+        <td><span>DNS派</span> (备选：218.30.118.6)</td>
+        <td class='latency'  id='ap-south-1' endpoint='218.30.118.6'>&nbsp;</td>
+    </tr>
+    <tr>
+        <td><span>OpenDNS</span> (首选：208.67.222.222)</td>
+        <td class='latency'  id='eu-north-1' endpoint='101.226.4.6'>&nbsp;</td>
+    </tr>
+    <tr>
+        <td><span>OpenDNS</span> (备选：208.67.220.220)</td>
+        <td class='latency'  id='ap-south-1' endpoint='218.30.118.6'>&nbsp;</td>
+    </tr>
+    <tr>
+        <td><span>Google DNS</span> (首选：8.8.8.8)</td>
+        <td class='latency'  id='eu-north-1' endpoint='8.8.8.8'>&nbsp;</td>
+    </tr>
+    <tr>
+        <td><span>Google DNS</span> (备选：8.8.4.4)</td>
+        <td class='latency'  id='ap-south-1' endpoint='8.8.4.4'>&nbsp;</td>
+    </tr>
+    <tr>
+        <td id='imageCell'></td>
+        <td><input type='submit' id='pingbutton' value="     HTTP Ping     "></td>
+    </tr>
+</table>
+
+<p>Lewei Li<br>
+<a href="mailto:lewei.li@qq.com">lewei.li@qq.com</a></p>
+
+<script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+
+<script type="text/javascript">
+
+var pingButton = $("#pingbutton");
+
+function disablePingButton() {
+    pingButton.attr("disabled", "disabled");
+};
+
+function enablePingButton() {
+    pingButton.removeAttr("disabled");
+};
+
+// http://stackoverflow.com/questions/1403888/get-url-parameter-with-jquery
+function getURLParameter(name) {
+    var regex = new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)');
+    var matches = regex.exec(location.search);
+    if (matches == null) {
+        return null;
+    }
+    var value = matches[1];
+    var value = value.replace(/\+/g, '%20');
+    return decodeURIComponent(value);
+}
+
+$(document).ready(function() {
+    $("#pingbutton").click(pingButtonClicked);
+    if (getURLParameter("run")) {
+        $("#pingbutton").click();
+    }
+});
+
+function pingButtonClicked() {
+    disablePingButton();
+    var latencyBoxes = $(".latency").toArray();
+    latencyBoxes.reverse();
+      doNextBox(latencyBoxes);
+}
+
+function doNextBox(latencyBoxes) {
+    var box = latencyBoxes.pop();
+    if (box) {
+        var region = box.id;
+        var endpoint = box.getAttribute("endpoint");
+        step1_connect(box, region, endpoint, latencyBoxes);
+    } else {
+        enablePingButton();
+    }
+}
+
+var timer = null;
+var imageCell = $("#imageCell")
+function ping_endpoint(endpoint, onComplete) {
+    var randomString = Math.floor(Math.random()*0xFFFFFFFFFFFFFFFF).toString(36);
+    var targetUrl = 'http://'+ endpoint + "/ping?x=" + randomString;
+    // var targetUrl = endpoint + "/ping?x=" + randomString;
+    imageCell.empty();
+    imageCell.html("<img id='pingImage' style='display: none'>");
+    var pingImage = $("#pingImage");
+    pingImage.error(onComplete);
+    pingImage.attr("src", targetUrl);
+    clearTimeout(timer);
+    timer = setTimeout(function() {
+        pingImage.attr("src", '');
+        onComplete();
+    }, 2001)
+}
+
+function step1_connect(box, region, endpoint, latencyBoxes) {
+    $(box).html("connecting");
+    var step1 = false;
+
+    ping_endpoint(endpoint, function() { 
+        step2_ping(box, region, endpoint, latencyBoxes); 
+
+    });
+}
+
+function currentTimeMillis() {
+    return (new Date()).getTime();
+}
+
+function step2_ping(box, region, endpoint, latencyBoxes) {
+    $(box).html("pinging");
+    var startTime = currentTimeMillis();
+    ping_endpoint(endpoint, function() { step3_finish(startTime, box, region, endpoint, latencyBoxes); });
+}
+
+function step3_finish(startTime, box, region, endpoint, latencyBoxes) {
+    var endTime = currentTimeMillis();
+    var elapsed = endTime - startTime;
+    var resultText = elapsed.toString() + " ms";
+    if(elapsed > 2000) {
+        resultText = '连接失败，超过2s'
+    } 
+    $(box).html(resultText);
+    doNextBox(latencyBoxes);
+}
+
+</script>
+
+</div>
+
+<div id="footer">
+  <p>Copyright &copy; 2019-2019 Lewei Li</p>
+</div>
+
+<div id=legalese>
+
+</div>
+</body>
